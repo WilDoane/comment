@@ -29,10 +29,12 @@ align_comments <-
     comment <- stringr::str_sub(lines, locs, nchar(lines))
      
     rstudioapi::setDocumentContents(
-      paste0(
-        stringr::str_pad(code, m, "right"),
-        comment,
-        collapse = "\n"
+      stringr::str_trim(
+        paste0(
+          stringr::str_pad(code, m, "right"),
+          comment,
+          collapse = "\n"
+        ), side = "right"
       ),
       doc_id
     )
